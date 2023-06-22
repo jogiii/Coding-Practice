@@ -1,8 +1,6 @@
 package other;
 
-import javafx.scene.Parent;
 
-import java.util.*;
 
 public class A extends Thread{
 
