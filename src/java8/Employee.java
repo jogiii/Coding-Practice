@@ -1,5 +1,6 @@
 package java8;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -36,16 +37,16 @@ public class Employee {
         if(obj==null) return false;
 
         Employee emp = (Employee)obj;
-        return (emp.name == this.name && emp.age==this.age);
+        return true;
     }
 
-    @Override
-    public int hashCode() {
-        final int PRIME =31;
-        int result = 1;
-        result = PRIME * result+this.age;
-        return result;
-    }
+//    @Override
+//    public int hashCode() {
+//        final int PRIME =31;
+//        int result = 1;
+//        result = PRIME * result+this.age;
+//        return 2;
+//    }
 
 
 
@@ -68,15 +69,15 @@ public class Employee {
 */
 
     public static void main(String[] args) {
-        Employee e = new Employee("joginder", 30);
-        Employee e1 = new Employee("joginder", 30);
+        Employee e = new Employee("a", 30);
+        Employee e1 = new Employee("b", 32);
 
 
-        Set<Employee> employees = new HashSet<Employee>();
-        employees.add(e);
-        employees.add(e1);
-        System.out.println(employees);
-        System.out.println(e.equals(e1));
+        HashMap<Employee, String> hm = new HashMap<>();
+        hm.put(e,"emp1");
+        hm.put(e1,"emp2");
+        System.out.println(hm.size());
+        System.out.println(hm.get(new Employee("a", 30)));
 
         // if we dont override hashcode mehod then this will return two objects but as per equals these two objects
         //are equal
